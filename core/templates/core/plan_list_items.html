@@ -1,0 +1,21 @@
+{% load humanize %}
+<div class="main shadow" id="main">
+    <div class="mainBlock1">
+        <h1 class="font-weight-bold p-2">{{ plan_type }} </h1>
+        <hr/>
+        {#<i class="fas fa-plus-circle"></i>#}
+
+        {% for plan in object_list %}
+            <div class="card-block-container">
+                <a href="{{ plan.get_absolute_url }}">
+                    <div class="card-block p-2">
+                        <div class="mx-1 card-block-version">version: {{ plan.version }}</div>
+                        <div class="card-block-name d-flex"><div class="name-inner">{{ plan.name }}</div></div>
+                        <div class="mx-1 card-block-last-update">updated {{ plan.last_update|naturalday }}</div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
